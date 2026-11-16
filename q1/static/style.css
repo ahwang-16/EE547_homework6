@@ -1,0 +1,23 @@
+/* ArXiv Paper Browser — layout overrides for Pico CSS */
+
+#auth-box {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+#auth-box input {
+    width: auto;
+}
+
+#auth-status {
+    font-size: 0.85rem;
+}
+
+.paper-card {
+    cursor: pointer;
+}
+
+.paper-detail {
+    margin-top: 0.5rem;
+}

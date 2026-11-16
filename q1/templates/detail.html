@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ paper.title }} - ArXiv Browser{% endblock %}
+
+{% block content %}
+<article>
+    <header>
+        <h2>{{ paper.title }}</h2>
+        <p>
+            <small>
+                {{ (paper.authors or []) | join(', ') }}
+                {% if paper.published %} &middot; {{ paper.published }}{% endif %}
+            </small>
+        </p>
+    </header>
+
+    <p>{{ paper.abstract or 'No abstract available.' }}</p>
+
+    <footer>
+        <p><small>Categories: {{ (paper.categories or []) | join(', ') }}</small></p>
+        <p>
+            <a href="https://arxiv.org/abs/{{ paper.arxiv_id }}" target="_blank" rel="noopener noreferrer">
+                View on arxiv.org &rarr;
+            </a>
+        </p>
+    </footer>
+</article>
+
+<p><a href="{{ url_for('papers_page') }}">&larr; Back to Papers</a></p>
+{% endblock %}

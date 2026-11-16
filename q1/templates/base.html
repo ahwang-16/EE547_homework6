@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}ArXiv Browser{% endblock %}</title>
+    <!-- CSS: Pico framework -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!-- CSS: local overrides -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- JS: client-side interactions -->
+    <script defer src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><strong><a href="{{ url_for('papers_page') }}">ArXiv Browser</a></strong></li>
+                <li><a href="{{ url_for('papers_page') }}">Papers</a></li>
+                <li><a href="{{ url_for('search_page') }}">Search</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <div id="auth-box">
+                        <input type="text" id="auth-user" placeholder="Username" size="8">
+                        <input type="password" id="auth-pass" placeholder="Password" size="8">
+                        <button id="auth-login">Login</button>
+                        <span id="auth-status"></span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">{% block content %}{% endblock %}</main>
+    <footer class="container">
+        <div id="stats-box"></div>
+    </footer>
+</body>
+</html>
